@@ -1,24 +1,24 @@
-/* App.css */
+/* General styles */
 .container {
-    text-align: center;
+  padding: 20px;
+}
+
+.graphs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.bar, .graph-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px 0;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 600px) {
+  .bar, .graph-container {
+    width: 100%;
+    margin: 10px 0;
   }
-  
-  .graphs {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-  }
-  
-  .graph-container {
-    flex: 1;
-    min-width: 300px;
-    max-width: 600px;
-    margin: 20px;
-  }
-  
-  select {
-    padding: 10px;
-    margin: 20px 0;
-    font-size: 16px;
-  }
-  
+}

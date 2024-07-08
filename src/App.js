@@ -215,6 +215,7 @@ const App = () => {
         ))}
       </select>
       {selectedRoot && Object.keys(monthlyAverages).length > 0 && (
+        <div className="graphs">
         <div className="graph-container">
           <h2>Monthly Averages for Root {selectedRoot}</h2>
           <Bar
@@ -280,6 +281,7 @@ const App = () => {
               ],
             }}
             options={{
+              
               scales: {
                 x: {
                   beginAtZero: true,
@@ -291,6 +293,7 @@ const App = () => {
             }}
            
           />
+        </div>
         </div>
       )}
      
@@ -307,7 +310,7 @@ const App = () => {
           {selectedMonth && (
             <div className="graphs">
               <div className="graph-container">
-                <h2>DNS Traffic Data (IPv4)</h2>
+                <h2>DNS Traffic Data (IPv4) for {selectedRoot}</h2>
                 <Line
                   data={{
                     labels: filteredData.map(item => item.date),
@@ -342,7 +345,7 @@ const App = () => {
               </div>
 
               <div className="graph-container">
-                <h2>DNS Traffic Data (IPv6)</h2>
+                <h2>DNS Traffic Data (IPv6) for {selectedRoot}</h2>
                 <Line
                   data={{
                     labels: filteredData.map(item => item.date),
