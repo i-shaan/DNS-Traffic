@@ -149,6 +149,7 @@ const Graphs = () => {
         fill: false,
       }
     ],
+    
   };
 
   const chartData_6 = {
@@ -200,10 +201,22 @@ const Graphs = () => {
             options={{
               scales: {
                 x: {
-                  beginAtZero: true,
+                  grid: {
+                    color: 'white', // x-axis grid lines color
+                  },
                 },
                 y: {
+                  grid: {
+                    color: 'white', // y-axis grid lines color
+                  },
                   beginAtZero: true,
+                },
+              },
+              plugins: {
+                legend: {
+                  labels: {
+                    color: 'white', // legend text color
+                  },
                 },
               },
             }}
@@ -216,10 +229,22 @@ const Graphs = () => {
             options={{
               scales: {
                 x: {
-                  beginAtZero: true,
+                  grid: {
+                    color: 'white',
+                  },
                 },
                 y: {
+                  grid: {
+                    color: 'white', 
+                  },
                   beginAtZero: true,
+                },
+              },
+              plugins: {
+                legend: {
+                  labels: {
+                    color: 'white', 
+                  },
                 },
               },
             }}

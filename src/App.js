@@ -12,6 +12,7 @@ import { dnsData_J } from './data/J.js';
 import { dnsData_K } from './data/K.js';
 import { dnsData_L } from './data/L.js';
 import { dnsData_M } from './data/M.js';
+import { Total } from './data/Total.js';
 import './App.css';
 import { useEffect } from 'react';
 import Graphs from './Graphs.js';
@@ -20,7 +21,7 @@ import Graphs from './Graphs.js';
 Chart.register(...registerables);
 
 const toMillions = (value) => value / 1_000_000;
-const roots = ['A', 'B', 'C', 'D', 'E', 'F', 'I', 'J', 'K', 'L', 'M'];
+const roots = ['A', 'B', 'C', 'D', 'E', 'F', 'I', 'J', 'K', 'L', 'M','Total'];
 
 const groupByMonth = (data) => {
   const monthlyData = {};
@@ -90,7 +91,8 @@ const aggregateRootData = () => {
     J: calculateMonthlyAverages(groupByMonth(dnsData_J)),
     K: calculateMonthlyAverages(groupByMonth(dnsData_K)),
     L: calculateMonthlyAverages(groupByMonth(dnsData_L)),
-    M: calculateMonthlyAverages(groupByMonth(dnsData_M))
+    M: calculateMonthlyAverages(groupByMonth(dnsData_M)),
+    Total: calculateMonthlyAverages(groupByMonth(Total))
   };
 
   const aggregatedData = {
@@ -183,6 +185,9 @@ const App = () => {
       case 'M':
         data = dnsData_M;
         break;
+      case 'Total':
+          data = Total;
+          break;
       default:
         data = [];
     }
@@ -281,13 +286,24 @@ const App = () => {
               ],
             }}
             options={{
-              
               scales: {
                 x: {
-                  beginAtZero: true,
+                  grid: {
+                    color: 'white', // x-axis grid lines color
+                  },
                 },
                 y: {
+                  grid: {
+                    color: 'white', // y-axis grid lines color
+                  },
                   beginAtZero: true,
+                },
+              },
+              plugins: {
+                legend: {
+                  labels: {
+                    color: 'white', // legend text color
+                  },
                 },
               },
             }}
@@ -341,6 +357,28 @@ const App = () => {
                       },
                     ],
                   }}
+                  options={{
+                    scales: {
+                      x: {
+                        grid: {
+                          color: 'white', // x-axis grid lines color
+                        },
+                      },
+                      y: {
+                        grid: {
+                          color: 'white', // y-axis grid lines color
+                        },
+                        beginAtZero: true,
+                      },
+                    },
+                    plugins: {
+                      legend: {
+                        labels: {
+                          color: 'white', // legend text color
+                        },
+                      },
+                    },
+                  }}
                 />
               </div>
 
@@ -375,6 +413,28 @@ const App = () => {
                         fill: false,
                       },
                     ],
+                  }}
+                  options={{
+                    scales: {
+                      x: {
+                        grid: {
+                          color: 'white', // x-axis grid lines color
+                        },
+                      },
+                      y: {
+                        grid: {
+                          color: 'white', // y-axis grid lines color
+                        },
+                        beginAtZero: true,
+                      },
+                    },
+                    plugins: {
+                      legend: {
+                        labels: {
+                          color: 'white', // legend text color
+                        },
+                      },
+                    },
                   }}
                 />
               </div>
