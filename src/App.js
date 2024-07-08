@@ -222,7 +222,8 @@ const App = () => {
       {selectedRoot && Object.keys(monthlyAverages).length > 0 && (
         <div className="graphs">
         <div className="graph-container">
-          <h2>Monthly Averages for Root {selectedRoot}</h2>
+          {selectedRoot!='Total' && (<h2>Monthly Averages for Root {selectedRoot}</h2>)}
+          {selectedRoot=='Total' && (<h2>Total Monthly Averages </h2>)}
           <Bar
             data={{
               labels: Object.keys(monthlyAverages),
@@ -326,7 +327,8 @@ const App = () => {
           {selectedMonth && (
             <div className="graphs">
               <div className="graph-container">
-                <h2>DNS Traffic Data (IPv4) for {selectedRoot}</h2>
+              {selectedRoot!='Total' && (<h2>DNS Traffic Data (IPv4) for {selectedRoot}</h2>)}
+              {selectedRoot=='Total' && (<h2>Total DNS Traffic Data (IPv4)</h2>)}
                 <Line
                   data={{
                     labels: filteredData.map(item => item.date),
@@ -383,7 +385,8 @@ const App = () => {
               </div>
 
               <div className="graph-container">
-                <h2>DNS Traffic Data (IPv6) for {selectedRoot}</h2>
+              {selectedRoot!='Total' && (<h2>DNS Traffic Data (IPv6) for {selectedRoot}</h2>)}
+              {selectedRoot=='Total' && (<h2>Total DNS Traffic Data (IPv6)</h2>)}
                 <Line
                   data={{
                     labels: filteredData.map(item => item.date),
