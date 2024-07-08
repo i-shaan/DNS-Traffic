@@ -1,6 +1,8 @@
 /* General styles */
 .container {
   padding: 20px;
+  color:white;
+  background-color:black;
 }
 
 .graphs {
